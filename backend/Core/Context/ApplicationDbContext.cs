@@ -1,5 +1,6 @@
 ﻿using backend.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace backend.Core.Context
 {
@@ -28,10 +29,29 @@ namespace backend.Core.Context
                 .WithMany(job => job.Candidates)
                 .HasForeignKey(candidate => candidate.JobId);
 
+            modelBuilder.Entity<Company>()
+                .Property(company => company.Size)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<Job>()
+                .Property(job => job.Level)
+                .HasConversion<string>();
+
 
 
         }
         
 
+    }
+
+    public class YourDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    {
+        public ApplicationDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseSqlServer("Server=.;Database=ResumeManagementDRTS;Trusted_Connection=true;TrustServerCertificate=true;");
+
+            return new ApplicationDbContext(optionsBuilder.Options);
+        }
     }
 }
