@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Core\Dtos\" />
-    <Folder Include="Dtos\Candidate\" />
+    <Folder Include="documents\pdfs\" />
   </ItemGroup>
 
 </Project>
