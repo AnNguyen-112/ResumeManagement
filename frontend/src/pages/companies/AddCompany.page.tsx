@@ -21,7 +21,7 @@ const AddCompany = () => {
   });
 
   const handleClickSaveBtn = () => {
-    if (company.name == "" || company.size === "") {
+    if (company.name === "" || company.size === "") {
       alert("Fill all fields is required");
       return;
     }
@@ -49,7 +49,7 @@ const AddCompany = () => {
         <FormControl fullWidth>
           <InputLabel>Company Size</InputLabel>
           <Select
-            id="demo-simple-select"
+            
             value={company.size}
             label="Company Size"
             onChange={(e) => setCompany({ ...company, size: e.target.value })}

@@ -4,6 +4,8 @@ import React from "react";
 import moment from "moment";
 import { ICompany } from "../../types/global.typing";
 
+import "./companies-grid.scss"
+
 const column: GridColDef[] = [
   { field: "id", headerName: "ID", width: 100 },
   { field: "name", headerName: "Name", width: 200 },
